@@ -1,5 +1,12 @@
-<div ng-controller="PlayersController">
+<div ng-controller="PlayersController" ng-init="find()">
 	<positions></positions>
 	<nflteams></nflteams>
 	<searchlimit></searchlimit>
+	<table>
+    <tr ng-repeat="player in players | filter:search | filter: strictsearch:true | limitTo:limitct">
+      <td>{{ player.pos }}</td>
+      <td>{{ player.num }}</td>
+      <td>{{ player.name }}</td>
+    </tr>
+  </table>
 </div>
